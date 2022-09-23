@@ -137,7 +137,7 @@ for i = 1:length(fm)
    
     fprintf('Noise gain at %i Hz:\t\t %.2f \n', round(fm_new), noise_gain(i))
     fprintf('Gain bandwidth: \t\t\t %.2f \n', noise_gain(i)*fm_new)
-    fprintf('Max gain bandwidth %s: \t %.2f  \n \n', opamp, gbw)
+    fprintf('Unity gain bandwidth %s: %.2f  \n \n', opamp, gbw)
 end
 
 
