@@ -21,7 +21,7 @@ The gain and filter quality were set to $A_m = -10, \: Q = 6$ while capacitor va
 
 A final calculation is done to ensure the filter gains do not exceed the unity gain bandwidth (GBW) of the op amps. The actual amplification from the op amps is obtained from the noise gain. The noise gain is then multiplied with the corresponding mid frequency of each filter to obtain the (highest) GBW. This is also provided in the same MATLAB script. The calculation shows that all filters have a GBW below 2 MHz (TLC272), although the 16 kHz filter is close at 1.1 MHz. Thus, variations in temperature or other factors might limit the gain for 16 kHz filter.
 
-![gbw](img/gbw.png)
+<img src="./img/gbw.png" width = 500>
 
 # Comparators
 
