@@ -17,6 +17,8 @@
 # Filters
 The filters were chosen to be Multiple Feedback filters since they allow independent adjustment of the gain $A_m$, filter quality $Q$ and mid frequency $f_m$. The transfer function and equations for calculating component values are taken from TI's design reference SLOD006B (16-31).
 
+<img src="./img/filter.png" width = 700>
+
 The gain and filter quality were set to $A_m = -10, \: Q = 6$ while capacitor values were chosen in the range of 33 to 0.33 nF to end up with reasonable resistor values. A MATLAB script is provided to calculate the exact resistor values and then round to nearest corresponding value from the E-24 series. The frequency responses are then simulated for the exact and rounded resistor values.
 
 ![bode](img/bode.png)
@@ -64,14 +66,15 @@ Currently the brightness of the LEDs are set by series resistors. Some brightnes
 # Bill of Materials
 
 # Contributors
-Daniel Quach ([Muoshy](https://github.com/Muoshy))
+**Daniel Quach** ([Muoshy](https://github.com/Muoshy))  
+Main Contributor
 - Filter design & Simulations
 - PCB Design and assembly
 
-Johan Wheeler ([johanwheeler](https://github.com/johanwheeler))
+**Johan Wheeler** ([johanwheeler](https://github.com/johanwheeler))
 - Mechanical design
 - Mechanical assembly
 
-Adam Anderson ([adand00](https://github.com/adaand00))
+**Adam Anderson** ([adand00](https://github.com/adaand00))
 - ESP input stage
 - PCB Design and programming
