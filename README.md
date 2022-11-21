@@ -8,7 +8,7 @@
   The filters are second-order Multiple Feedback bandpass filters using TLC272 opamps. The VU-meters consist of a logaritmic comparator array, also using TLC272 opamps. The project is inspired by a reel of 2000 TLC272 bought cheaply at an auction.
   
 # Features
-- Fully analog
+- Fully analog (Except input stage)
 - Seven frequency bands
 - 10 levels per band
 - 1.25 octave spacing
