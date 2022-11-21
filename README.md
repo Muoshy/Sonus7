@@ -39,7 +39,7 @@ The comparators are built from open loop op amps. Reference voltage levels are g
 ## PCBs
 The Sonus7 consists of three boards (types).
 ### Input Stage
- The first board is an input stage which should receive the audio (wirelessly), convert into mono and normalize the volume/level. This is not fully implemented and the current input stage is simply a 3.5mm audio jack stereo line level to mono buffer. The input stage is connected to the next stage using a 4pin JST EH connector (VCC, GND, MONO, GND)
+ The input stage consists of a custom board with an ESP32 and PCM5100. The ESP32 recieves the audio wirelessly through snapcast, using the port by ![@CarlosDerSeher](https://github.com/CarlosDerSeher/snapclientThe). The audio data is then sent to the PCM5100 DAC over I2S. The input stage is connected to the next stage using a 4pin JST EH connector (VCC, GND, MONO, GND). The Kicad files for the input stage are available in /PCBs/ESP-input/.
 
 ### Filter and Comparator stage
 The filter and comparator stage is the main board and contains all the filters and the comparator arrays. This board also contains the input power DC-jack (9V) along with a simple reverse input protection (PMOS) and thus powers the rest of the boards.
@@ -51,7 +51,7 @@ The final stage are the display boards. These are very simple boards with only L
 
 # Improvements
 ## Less cables
-There is currently a 10p IDC for signal and a 2p JST for power. Combine power and signal into one connector (12p IDC).
+There is currently a 10p IDC for signal and a 2p JST for power. Combining power and signal into one connector (12p IDC) would tidy up the design.
 
 ## More stable supply voltage
 Due to varying current draw (LEDs), the Drain-Source resistance of the PMOS causes to a varying voltage drop of 0-22 mV ($R_{DS}$ = 32 mOhm, $I_{DS}$ = 0.7 A). This can cause issues for the op amps, which need a stable supply voltage. A simple fix could be adding a power regulator after the reverse input protection.
