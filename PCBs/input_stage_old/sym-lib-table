@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "SJ1-3523N")(type "Legacy")(uri "${KIPRJMOD}/custom/SJ1-3523N.lib")(options "")(descr ""))
+)

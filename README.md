@@ -54,7 +54,7 @@ The final stage are the display boards. These are very simple boards with only L
 There is currently a 10p IDC for signal and a 2p JST for power. Combine power and signal into one connector (12p IDC).
 
 ## More stable supply voltage
-Due to varying current draw (LEDs), the Drain-Source resistance of the PMOS causes to a varying voltage drop of 0-22 mV ($R_{DS}$ = 32 mOhm, $I_{DS}$ = 0.7 A). This can cause issues for the op amps, which need a stable supply voltage. A simple fix could be adding a power regulator after the reverse input protection.
+Due to varying current draw (LEDs), the Drain-Source resistance of the PMOS causes to a varying voltage drop of 0-22 mV ( $R_{DS}$ = 32 mOhm, $I_{DS}$ = 0.7 A). This can cause issues for the op amps, which need a stable supply voltage. A simple fix could be adding a power regulator after the reverse input protection.
 
 ## GBW
 The 16 kHz filter is quite close to the rated GBW of the TLC272. There is only a margin of $\frac{2}{1.1} \approx 1.8$ in gain before the limit. This can be solved by using cascaded filters which results in the individual gain of each op amp being smaller. Replacing the TLC272 with higher bandwidth op amps also works.
