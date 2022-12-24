@@ -23,14 +23,14 @@ The gain and filter quality were set to $A_m = -10, \: Q = 6$ while capacitor va
 
 ![bode](img/bode.png)
 
-A final calculation is done to ensure the filter gains do not exceed the unity gain bandwidth (GBW) of the op amps. The actual amplification from the op amps is obtained from the noise gain. The noise gain is then multiplied with the corresponding mid frequency of each filter to obtain the (highest) GBW. This is also provided in the same MATLAB script. The calculation shows that all filters have a GBW below 2 MHz (TLC272), although the 16 kHz filter is close at 1.1 MHz. Thus, variations in temperature or other factors might limit the gain for 16 kHz filter.
+A final calculation is done to ensure the filter gains do not exceed the unity gain bandwidth (GBW) of the op amps. The actual amplification from the op amps is obtained from the noise gain. The noise gain is then multiplied with the corresponding mid frequency of each filter to obtain the (highest) GBW. This is also provided in the same MATLAB script. The calculation shows that all filters have a GBW below 2 MHz (TLC272), although the 16 kHz filter is close at 1.1 MHz. Thus, variations in temperature or other factors might limit the gain for 16 kHz filter and cause distortions.
 
 <img src="./img/gbw.png" width = 500>
 
 The filtered signals are fed into peak detectors to obtain the audio level for each. The audio levels are then fed into the comparators which control the LEDs.
 
 # Comparators
-The comparators are built from open loop op amps. Reference voltage levels are generated from a logarithmic resistor ladder (3 dB per step) and fed into the non-inverting inputs. The inverting input is fed with the audio level. The op amp output can now function as a current sink for the LEDs. Any time the audio level exceeds the reference voltage level, the output is pulled low, allowing current flow for that level. Each op-amp drives one level, resulting in 70 op amps in total for the comparator stage.
+The comparators are built from open loop op amps. Reference voltage levels are generated from a logarithmic resistor divider (3 dB per step) and fed into the non-inverting inputs, essentially a logarithmic [Kelvin divider](https://en.wikipedia.org/wiki/Kelvin%E2%80%93Varley_divider). The inverting input is fed with the audio level. The op amp output can now function as a current sink for the LEDs. Any time the audio level exceeds the reference voltage level, the output is pulled low, allowing current flow for that level. Each op-amp drives one level, resulting in 70 op amps in total for the comparator stage.
 
 
 # Construction
@@ -39,7 +39,7 @@ The comparators are built from open loop op amps. Reference voltage levels are g
 ## PCBs
 The Sonus7 consists of three boards (types).
 ### Input Stage
- The input stage consists of a custom board with an ESP32 and PCM5100. The ESP32 recieves the audio wirelessly through snapcast, using the port by ![@CarlosDerSeher](https://github.com/CarlosDerSeher/snapclientThe). The audio data is then sent to the PCM5100 DAC over I2S. The input stage is connected to the next stage using a 4pin JST EH connector (VCC, GND, MONO, GND). The Kicad files for the input stage are available in /PCBs/ESP-input/.
+ The input stage consists of a custom board with an ESP32 and PCM5100. The ESP32 recieves the audio wirelessly through snapcast, using the port by [@CarlosDerSeher](https://github.com/CarlosDerSeher/snapclientThe). The audio data is then sent to the PCM5100 DAC over I2S. The input stage is connected to the next stage using a 4pin JST EH connector (VCC, GND, MONO, GND). The Kicad files for the input stage are available in /PCBs/ESP-input/.
 
 ### Filter and Comparator stage
 The filter and comparator stage is the main board and contains all the filters and the comparator arrays. This board also contains the input power DC-jack (9V) along with a simple reverse input protection (PMOS) and thus powers the rest of the boards.
